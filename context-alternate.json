@@ -9,7 +9,7 @@
     "@id": "http://cooperation.org/credentials/v1#Composable",
       "@context": {
         "linkedClaim": {
-          "@id": "http://cooperation.org/credentials/v1#LinkedClaim"
+          "@id": "http://cooperation.org/credentials/v1#linkedClaim"
         },
         "digestMultibase": {
           "@id": "http://cooperation.org/credentials/v1#digestMultibase"
