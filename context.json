@@ -1,0 +1,35 @@
+{
+  "effectiveDate": {
+    "@id": "http://cooperation.org/credentials/v1#effectiveDate",
+    "@type": "xsd:dateTime"
+  },
+  "canContainLinkedClaim": {
+    "@id": "http://cooperation.org/credentials/v1#canContainLinkedClaim",
+    "@context": {
+      "linkedClaim": {
+        "@id": "http://cooperation.org/credentials/v1#linkedClaim"
+      }
+    }
+  },
+  "linkedClaim": {
+    "@id": "http://cooperation.org/credentials/v1#linkedClaim",
+    "@context": {
+      "lc": "http://cooperation.org/credentials/v1#linkedClaim",
+      "aspect": {
+        "@id": "lc:aspect"
+      },
+      "source_type": {
+        "@id": "lc:source_type"
+      },
+      "source": {
+        "@id": "lc:source"
+      },
+      "object": {
+        "@id": "lc:object"
+      },
+      "statement": {
+        "@id": "lc:statement"
+      }
+    }
+  }
+}
