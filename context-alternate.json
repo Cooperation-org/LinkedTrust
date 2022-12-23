@@ -1,7 +1,6 @@
 {
 
   "@context": {
-    "@version": 1.0,
     
     "id": "@id",
     "type": "@type",
@@ -13,13 +12,13 @@
           "@id": "http://cooperation.org/credentials/v1#LinkedClaim"
         },
         "digestMultibase": {
-          "@id": "http://cooperation.org/credentials/v1#HashLink"
+          "@id": "http://cooperation.org/credentials/v1#digestMultibase"
         },
         "retrieveFrom": {
-           "@id": "http://cooperation.org/credentials/v1#HashLink"
+           "@id": "http://cooperation.org/credentials/v1#retrieveFrom"
         },
         "respondAt": {
-           "@id": "http://cooperation.org/credentials/v1#HashLink"
+           "@id": "http://cooperation.org/credentials/v1#respondAt"
         }
       }
     },
@@ -27,7 +26,6 @@
    "LinkedClaim": {
       "@id": "http://cooperation.org/credentials#LinkedClaim",
       "@context": {
-        "@version": 1.0,
         "id": "@id",
         "type": "@type",
 
