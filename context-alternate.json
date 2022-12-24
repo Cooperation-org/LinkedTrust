@@ -9,13 +9,14 @@
     "@id": "http://cooperation.org/credentials/v1#Composable",
       "@context": {
         "linkedClaim": {
-          "@id": "http://cooperation.org/credentials/v1#linkedClaim"
+          "@id": "http://cooperation.org/credentials/v1#linkedClaim",
+          "@type": "http://cooperation.org/credentials/v1#LinkedClaim"
         },
         "digestMultibase": {
           "@id": "http://cooperation.org/credentials/v1#digestMultibase"
         },
-        "retrieveFrom": {
-           "@id": "http://cooperation.org/credentials/v1#retrieveFrom"
+        "anchoredResource": {
+           "@id": "http://cooperation.org/credentials/v1#anchoredResource"
         },
         "respondAt": {
            "@id": "http://cooperation.org/credentials/v1#respondAt"
@@ -31,6 +32,9 @@
 
         "lc": "http://cooperation.org/credentials",
 
+        "claim": {
+           "@id": "lc:claim"
+        },
         "aspect": {
           "@id": "lc:aspect"
         },
