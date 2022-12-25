@@ -47,21 +47,28 @@
         "statement": {
           "@id": "lc:statement"
         },
+        "confidence": {
+          "@id": "lc:confidence"
+        },
         "effectiveDate": {
           "@id": "lc:effectiveDate",
           "@type": "xsd:dateTime"
+        },
+        "location": {
+          "@id": "lc:location",
+          "@type": "https://schema.org/location"
         }
       }
     },
 
     "ClaimSource": {
-       "@id": "http://cooperation.org/credentials#ClaimSource",
+       "@id": "http://cooperation.org/credentials#claimSource",
        "@context": {
-           "observationType": {},
-           "sourceUrl": {},
-           "geoLoc": {},
-           "narrative": {}
+           "sourceId": {},
+           "sourceType": {},
+           "dateObserved": "xsd:dateTime"
        }
     }
+
   }
 }
