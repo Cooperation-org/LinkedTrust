@@ -2,20 +2,41 @@ type LinkedClaim @createModel(
      accountRelation: LIST, 
      description: "Claim or attestation, possibly from 3rd party sources" ) 
 { 
-    subject: String! @string(minLength: 1, maxLength: 1024)
+    subjectID: String! @string(minLength: 1, maxLength: 1024)
+    subjectType: SubjectType
+    subjectName: String @string(minLength: 1, maxLength: 256)
     claim: String! @string(minLength: 1, maxLength: 256)     
     effectiveDate: Date 
     statement: String @string(minLength: 1, maxLength: 16384) 
     object: String @string(minLength: 1, maxLength: 1024) 
+    source: ClaimSource
+    rating: NormalizedRating
+    amt: Measure
+    confidence: Float
+    sharing: Sharing
 }
 
-type MeasurableClaim @createModel(
+enum SubjectType {
+    PERSON
+    ORGANIZATION
+    PRODUCT
+    EVENT
+    PLACE
+    ENTITY
+    ACTION
+    DOCUMENT
+    CLAIM
+    IDEA
+    THING
+    OTHER
+} 
+
+type Measure @createModel(
     accountRelation: LIST,
-    description: "Claim financial or other measurable amount" )
+    description: "Financial or other measurable amount" )
 {
-    linkedClaim: LinkedClaim! 
-    amount: Float!
-    amountUnits: String @string(minLength: 1, maxLength: 16)
+    value: Float!
+    unit: String @string(minLength: 1, maxLength: 16)
     howMeasured: String @string(minLength: 1, maxLength: 1024)
 }
 
@@ -23,31 +44,41 @@ type ClaimSource @createModel(
     accountRelation: LIST,
     description: "Claim sourced from 3rd party or external source")
 {
-    linkedClaim: LinkedClaim!
-    howKnown: String @string(minLength: 1, maxLength: 1024)
+    howKnown: HowKnown!
     dateObserved: Date
-    retrieveFrom: String @string(minLength: 1, maxLength: 1024)
+    sourceID: String @string(minLength: 1, maxLength: 1024)
     digestMultibase: String @string(minLength: 1, maxLength: 256)
     author: String @string(minLength: 1, maxLength: 1024)
     curator: String @string(minLength: 1, maxLength: 1024)
-    confidence: Float
 }
 
-type ReviewClaim @createModel(
+enum HowKnown {
+    FIRST_HAND
+    SECOND_HAND
+    WEB_DOCUMENT
+    VERIFIED_LOGIN
+    BLOCKCHAIN
+    SIGNED_DOCUMENT 
+    PHYSICAL_DOCUMENT
+    INTEGRATION
+    RESEARCH
+    OPINION
+    OTHER
+}
+
+type NormalizedRating @createModel(
     accountRelation: LIST,
     description: "Review or rating claim")
 {
-    linkedClaim: LinkedClaim!
     aspect: String @string(minLength: 1, maxLength: 256)
     score: Float! @float(min: -1, max: 1)
     stars: Int @int(min: 0, max: 5)
 }
 
-type SocialClaim @createModel(
+type Sharing @createModel(
     accountRelation: LIST,
-    description: "Claim that can be responded to") 
+    description: "Claim or post that can be responded to")
 {
-    linkedClaim: LinkedClaim!
     intendedAudience: String @string(minLength: 1, maxLength: 256)
     respondAt: String! @string(minLength: 1, maxLength: 1024)
-}
+} 
