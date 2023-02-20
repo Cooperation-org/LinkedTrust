@@ -1,4 +1,7 @@
-Use ComposeDB to publish LinkedTrust claims
+# LinkedTrust
+Open source tools for filtering, cleaning and aggregating trust claims
+
+Uses ComposeDB to publish LinkedTrust claims
 
 Use these libraries and commands from anywhere
 
